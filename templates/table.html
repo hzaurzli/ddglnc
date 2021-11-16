@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+  <!-- datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="w3l-header">
+	<!--/nav-->
+	<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+		<div class="container">
+			<a class="navbar-brand" style="color: #155724">
+				<span><img src="/static/assets/images/DNA.jpg" height="40px" width="40px"></span> DevoGene <span class="logo">Dynamic Developmental Gene</span></a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home</a>
+					</li>
+                    <li class="nav-item @@summary_active">
+						<a class="nav-link" href="{{ url_for('summary') }}">Summary</a>
+					</li>
+					<li class="nav-item @@about__active">
+						<a class="nav-link" href="{{ url_for('table') }}">Table</a>
+					</li>
+                    <li class="nav-item @@user__active">
+						<a class="nav-link" href="{{ url_for('user') }}">User guide</a>
+					</li>
+					<li class="nav-item @@contact__active">
+						<a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+					</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</nav>
+	<!--//nav-->
+</header>
+
+<br>
+<br>
+
+<table id="example" class="cell-border">
+    <thead>
+            <tr>
+                <th>id</th>
+                <th>Gene</th>
+                <th>Chr</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Species</th>
+                <th>GeneType</th>
+                <th>Sex</th>
+            </tr>
+    </thead>
+</table>
+
+<footer class="pt-5 my-5 text-muted border-top">
+    Created by the 2021
+</footer>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "searching": true ,
+        'iDisplayLength': 20,
+        "dom":  "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        "ajax": "http://127.0.0.1:5000/json",
+        "columns": [
+            { "data": "id"},
+            { "data": "Gene",render: function(data, type, row) { return '<a href="/single/' + row.Gene + '">' + data + '</a>'; } },
+            { "data": "Chr" },
+            { "data": "Start" },
+            { "data": "End",},
+            { "data": "Species" },
+            { "data": "GeneType" },
+            { "data": "Sex" }
+        ]
+    } );
+} );
+</script>
+
+</body>
+</html>

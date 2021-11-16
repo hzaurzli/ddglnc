@@ -1,0 +1,251 @@
+{% extends "index.html" %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+  <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   {% block content %}
+  <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+  <script src="https://code.highcharts.com.cn/highcharts/modules/data.js"></script>
+  <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com.cn/highcharts/modules/accessibility.js"></script>
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<!-- Header -->
+<div class="container" align="center">
+  <div class="card" style="height:100%;width:800px"><br>
+       <h2><strong>Download The Data</strong></h2>
+       <h4><strong>All tissues</strong></h4>
+    <div class="card-body">
+        <table id="datatable">
+		<thead>
+			<tr>
+				<th>DDG's TPM in Different Species</th>
+				<th>Download link</th>
+			</tr>
+		</thead>
+		<tbody>
+            <tr>
+				<td><h5>Homo sapiens</h5></td>
+				<td><a href="/static/data/human_ddg_ddg_tpm.rar" download="Human_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Macaca musculus</h5></td>
+				<td><a href="/static/data/macaque_ddg_ddg_tpm.rar" download="Macaca musculus_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Mus musculus</h5></td>
+				<td><a href="/static/data/mouse_ddg_ddg_tpm.rar" download="Mus_musculus_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Rattus norvegicus</h5></td>
+				<td><a href="/static/data/rat_ddg_ddg_tpm.rar" download="Rattus_norvegicus_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Orcytolagus cuniculus</h5></td>
+				<td><a href="/static/data/rabbit_ddg_ddg_tpm.rar" download="Orcytolagus_cuniculus_TPM">Link</a></td>
+			</tr>
+             <tr>
+				<td><h5>Bos taurus</h5></td>
+				<td><a href="/static/data/Bos_taurus_tpm.rar" download="Bos_taurus_TPM">Link</a></td>
+			</tr>
+             <tr>
+				<td><h5>Sus scrofa</h5></td>
+				<td><a href="/static/data/Sus_scrofa_tpm.rar" download="Sus_scrofa_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Monodelphis domestica</h5></td>
+				<td><a href="/static/data/opossum_ddg_ddg_tpm.rar" download="Monodelphis domestica_TPM">Link</a></td>
+			</tr>
+			<tr>
+				<td><h5>Gallus gallus</h5></td>
+				<td><a href="/static/data/chicken_ddg_ddg_tpm.rar" download="Gallus_gallus_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Danio rerio</h5></td>
+				<td><a href="/static/data/zebrafish_tpm.rar" download="Danio rerio_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Oryzias latipes</h5></td>
+				<td><a href="/static/data/Arabidopsis_tpm.rar" download="Oryzias latipes_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Drosophila melanogaster</h5></td>
+				<td><a href="/static/data/" download="Drosophila melanogaster_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Caenorhabditis elegans</h5></td>
+				<td><a href="/static/data/Beta_vulgaris_tpm.rar" download="Caenorhabditis elegans_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Arabidopsis thalian</h5></td>
+				<td><a href="/static/data/Arabidopsis_tpm.rar" download="Arabidopsis_thalian_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Zea mays</h5></td>
+				<td><a href="/static/data/Zea_mays_tpm.rar" download="Zea_mays_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Glycine max</h5></td>
+				<td><a href="/static/data/Glycine_max_tpm.rar" download="Glycine_max_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Tritium aestivm</h5></td>
+				<td><a href="/static/data/Triticum_aestivum_tpm.rar" download="Tritium_aestivm_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Vitis viniferas</h5></td>
+				<td><a href="/static/data/Vitis_viniferas_tpm.rar" download="Vitis_viniferas_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Musa acuminata</h5></td>
+				<td><a href="/static/data/" download="Musa_acuminat_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Beta vulgaris</h5></td>
+				<td><a href="/static/data/Beta_vulgaris_tpm.rar" download="Musa_acuminat_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Brachypodium distachyon</h5></td>
+				<td><a href="/static/data/Brachypodium_distachyon_tpm.rar" download="Brachypodium_distachyon_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Brassica rapa</h5></td>
+				<td><a href="/static/data/Brassica_rapa_tpm.rar" download="Brassica_rapa_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Solanum lycopersicum</h5></td>
+				<td><a href="/static/data/Solanum_lycopersicum_tpm.rar" download="Solanum_lycopersicum_TPM">Link</a></td>
+			</tr>
+            <tr>
+				<td><h5>Sorghum bicolor</h5></td>
+				<td><a href="/static/data/Sorghum_bicolor_tpm.rar" download="Sorghum_bicolor_TPM">Link</a></td>
+			</tr>
+		</tbody>
+	</table>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<style type="text/css">
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 10px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+</style>
+<style>
+    #container {
+	height: 400px;
+}
+.highcharts-figure, .highcharts-data-table table {
+	min-width: 310px;
+	max-width: 800px;
+	margin: 1em auto;
+}
+#datatable {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+#datatable caption {
+	padding: 1em 0;
+	font-size: 1.2em;
+	color: #555;
+}
+#datatable th {
+	font-weight: 600;
+	padding: 0.5em;
+}
+#datatable td, #datatable th, #datatable caption {
+	padding: 0.5em;
+}
+#datatable thead tr, #datatable tr:nth-child(even) {
+	background: #f8f8f8;
+}
+#datatable tr:hover {
+	background: #f1f7ff;
+}
+</style>
+</body>
+
+<footer class="pt-5 my-5 text-muted border-top">
+    <div align="center">
+         <p>Copyright ©Chen Lab, College of Life Science and Technology , HZAU, China.</p>
+         <p>Any comments and suggestions, please contact us</p>
+         <p>鄂ICP备19017097号</p>
+    </div>
+</footer>
+{% endblock %}
+</html>

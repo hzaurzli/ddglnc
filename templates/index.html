@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+  <!-- highchart -->
+  <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+  <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+  <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+  <script src="http://cdn.highcharts.com.cn/highcharts/9.1.2/highcharts-more.js"></script>
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+</head>
+
+<body>
+<!-- Header -->
+<header class="w3l-header">
+	<!--/nav-->
+	<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+		<div class="container">
+			<a class="navbar-brand" style="color: #155724"> <img src="/static/assets/images/logo_new.png" height="120px" width="700px"> </a>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: ">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item @@home_active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home</a>
+					</li>
+                    <li class="nav-item @@summary_active">
+						<a class="nav-link" href="{{ url_for('summary') }}">Browse</a>
+					</li>
+                    <li class="nav-item @@Download_active">
+						<a class="nav-link" href="{{ url_for('download') }}">Download</a>
+					</li>
+                    <li class="nav-item @@user__active">
+						<a class="nav-link" href="{{ url_for('help') }}">Help</a>
+					</li>
+					<li class="nav-item @@contact__active">
+						<a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--//nav-->
+</header>
+{% block content %}
+
+<section class="w3l-index3" id="about">
+    <div class="midd-w3 py">
+        <div class="container py-lg-4 py-md-3">
+
+            <div class="row">
+                <div class="col-lg-6 right-wthree-img text-lg-right mt-lg-0 mt-2">
+                    <h1 align="left">Welcome</h1>
+                    <div class="card-body">
+                        <br>
+
+                        <h3 align="left" style="line-height: 40px;">
+                            A huge number of developmentally dynamic genes (DDGs) lead to phenotypic differences across developmental stages. Especially, developmentally dynamic lncRNAs have been found to enrich for functionally relevant lncRNAs, and thus useful for the identification of potential functional lncRNAs.
+                        </h3>
+                        <br>
+                        <h3 align="left" style="line-height: 40px;">
+                            DevoGene, a comprehensive database of DDGs, systematically integrated all public developmental transcriptomic datasets and related publications with more than two developmental stages, and identified 434,132 DDGs in 24 species by curating high-throughput datasets of 2,360 samples from 6,850 experiments of 67 projects.
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 about-left-faq align-self">
+                    <div class="card-body">
+                        <img src="/static/assets/images/introduction_new.png" height="800px"  align="center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="w3l-index3" id="summary">
+
+    <div class="midd-w3 py-5">
+        <div class="container py-lg-4 py-md-3">
+            <h1>Data summary</h1>
+            <div class="row">
+                <div class="col-lg-6 about-right-faq align-self" align="">
+                    <div class="card-body">
+                        <div id="container1" style="min-width:600px;height:1200px"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 about-left-faq align-self">
+                    <div class="card-body">
+                        <div id="container" style="min-width:400px;height:1200px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+
+<script type="text/javascript">
+var chart = Highcharts.chart('container', {
+	chart: {
+		type: 'bubble',
+		plotBorderWidth: 1,
+		zoomType: 'xy',
+        height:'1200px',
+		inverted: true
+	},
+	tooltip: {
+			pointFormat: '{point.name}: <b>{point.z}</b><br/>'
+		},
+    colors: ['#548235'],
+	legend: {
+		enabled: true,
+		align: 'right',
+		verticalAlign: 'top'
+	},
+	title: {
+		text: 'Data source of all species'
+	},
+	xAxis: {
+		categories: ['Homo sapiens','Gallus gallus','Macaca mulatta','Mus musculus','Monodelphis domestica',
+            'Orcytolagus cuniculus','Rattus norvegicus','Bos taurus','Drosophila melanogaster','Arabidopsis thaliana',
+            'Musa acuminata','Beta vulgaris','Oryzias latipes','Sus scrofa','Caenorhabditis elegans','Danio rerio',
+            'Brachypodium distachyon','Brassica rapa','Glycine max','Solanum lycopersicum',
+            'Sorghum bicolor','Triticum aestivum','Vitis viniferas','Zea mays'],
+		floor:0,
+		ceiling:23,
+        visible:false
+	},
+	yAxis: {
+	    opposite: true,
+		startOnTick: false,
+		endOnTick: false,
+		title: {
+			text: 'Tissue number'
+		},
+        fontSize: '50px'
+	},
+	series: [{
+		name:'Developmental stage number',
+		type: 'bubble',
+		colorByPoint: true,
+		data: [{
+			name: 'Homo sapiens',
+			y: 7,
+			z:48
+		},  {
+			name: 'Macaca mulatta',
+			y: 7,
+			z:16
+		}, {
+			name: 'Mus musculus',
+			y: 8,
+			z:14
+		}, {
+			name: 'Rattus norvegicus',
+			y: 8,
+			z:15
+		}, {
+			name: 'Orcytolagus cuniculus',
+			y: 8,
+			z:14
+		}, {
+			name: 'Bos taurus',
+			y: 1,
+			z:3
+		}, {
+			name: 'Sus scrofa',
+			y: 27,
+			z:3
+		}, {
+			name: 'Monodelphis domestica',
+			y: 7,
+			z:15
+		}, {
+			name: 'Gallus gallus',
+			y: 7,
+			z: 9
+		}, {
+			name: 'Danio rerio',
+			y: 1,
+			z:181
+		}, {
+			name: 'Oryzias latipes',
+			y: 1,
+			z:11
+		}, {
+			name: 'Drosophila melanogaster',
+			y: 1,
+			z: 11
+		},{
+			name: 'Caenorhabditis elegans',
+			y: 6,
+			z:22
+		},{
+			name: 'Arabidopsis thaliana',
+			y: 23,
+			z:26
+		}, {
+			name: 'Zea mays',
+			y: 45,
+			z:43
+		}, {
+			name: 'Glycine max',
+			y: 41,
+			z: 56
+		}, {
+			name: 'Triticum aestivum',
+			y: 12,
+			z:24
+		}, {
+			name: 'Vitis viniferas',
+			y: 6,
+			z:22
+		}, {
+			name: 'Musa acuminata',
+			y: 1,
+			z:3
+		}, {
+			name: 'Beta vulgaris',
+			y: 1,
+			z:5
+		},{
+			name: 'Brachypodium distachyon',
+			y: 5,
+			z: 8
+		},{
+			name: 'Brassica rapa',
+			y: 2,
+			z: 7
+		},{
+			name: 'Solanum lycopersicum',
+			y: 12,
+			z:13
+		},{
+			name: 'Sorghum bicolor',
+			y: 8,
+			z: 6
+		}]
+	}]
+});
+</script>
+
+
+<script type="text/javascript">
+    Highcharts.chart('container1', {
+	chart: {
+		plotBackgroundColor: null,
+		plotBorderWidth: null,
+		plotShadow: false,
+		type: 'column',
+        height:'1200px',
+		inverted: true
+	},
+    colors: ["#b2cf87","#485b4d"],
+	title: {
+		text: 'DDGs in all species'
+	},
+    legend: {
+		enabled: true,
+		align: 'right',
+		verticalAlign: 'top'
+	},
+    xAxis: {
+		categories: ['Homo sapiens', 'Macaca mulatta', 'Mus musculus', 'Rattus norvegicus', 'Orcytolagus cuniculus',
+            'Bos taurus', 'Sus scrofa', 'Monodelphis domestica', 'Gallus gallus', 'Danio rerio', 'Oryzias latipes',
+            'Drosophila melanogaster', 'Caenorhabditis elegans', 'Arabidopsis thaliana', 'Zea mays', 'Glycine max',
+            'Triticum aestivum', 'Vitis viniferas', 'Musa_acuminata', 'Beta vulgaris', 'Brachypodium distachyon',
+            'Brassica rapa', 'Solanum lycopersicum', 'Sorghum bicolor'],
+		crosshair: true
+	},
+    yAxis: {
+		min: 0,
+        opposite: true,
+		title: {
+			text: 'Fraction'
+		},
+		stackLabels: {  // 堆叠数据标签
+			enabled: false,
+			style: {
+				fontWeight: 'bold'
+			}
+		}
+	},
+    plotOptions: {
+
+		column: {
+			stacking: 'percent'
+		}},
+	series: [{name: 'non-coding RNA',
+		data: [24578, 2704, 16278, 4832, 5172, 30, 3944, 8215, 5836, 875, 576, 847, 181, 279, 2370, 201, 96, 254, 208, 11, 125, 33, 264, 49]
+	},{
+	    name: 'protein coding gene',
+		data: [19168, 15066, 19504, 18956, 18518, 979, 15556, 17706, 16017, 19270, 18807, 9544, 7482, 5857, 31989, 40181, 1275, 23485, 26770, 1220, 27495, 1543, 21638, 14217]
+	},
+        ]
+});
+</script>
+</body>
+{% endblock %}
+<footer class="pt-5 my-5 text-muted border-top">
+    <div id="footer" class="text-center" style="margin-top: 20px" align="center">
+        <p>
+            <strong>Copyright ©</strong>
+            <a href="http://www.chenzxlab.cn/" target="_blank">Chen Lab</a>,
+            <a href="http://lst.hzau.edu.cn/yw/HOME.htm" target="_blank">College of Life Science and Technology</a>,
+            <a href="http://www.hzau.edu.cn/en/HOME.htm" target="_blank">HZAU</a>,
+            China.
+        </p>
+        <p>
+            Any comments and suggestions, please <a href="/contact/" target="blank">contact us</a>
+        </p>
+            <a href="http://www.beian.miit.gov.cn" target="blank">鄂ICP备19017097号</a>
+    </div>
+</footer>
+
+</html>

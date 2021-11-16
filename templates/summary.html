@@ -1,0 +1,348 @@
+{% extends "index.html" %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Browser</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+    {% block content %}
+  <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- highchart -->
+  <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+  <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+  <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+  <!-- 面板 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<br>
+<br>
+<div class="container" align="center">
+  <div class="card" style="height:1000px;width:1200px">
+      <div class="card-header" align="left"><h4>Phylogenetic tree</h4></div>
+    <div class="card-body">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1100px" height="1200px" name="tree" y="0" viewBox="0 60 860 760">
+<g class="background" id="prunetree-background-colors" bg-colors="periods">
+<polyline points="20,632 59,632 59,20 20,20 20,632" class="background" fill="#FDC07A" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="59,632 140,632 140,20 59,20 59,632" class="background" fill="#FDCC8A" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="140,632 222,632 222,20 140,20 140,632" class="background" fill="#FED99A" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="222,632 282,632 282,20 222,20 222,632" class="background" fill="#FEBF4E" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="282,632 372,632 372,20 282,20 282,632" class="background" fill="#FECC5C" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="372,632 408,632 408,20 372,20 372,632" class="background" fill="#FED96A" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="408,632 430,632 430,20 408,20 408,632" class="background" fill="#7FA056" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="430,632 448,632 448,20 430,20 430,632" class="background" fill="#009270" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="448,632 459,632 459,20 448,20 448,632" class="background" fill="#B3E152" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="459,632 482,632 482,20 459,20 459,632" class="background" fill="#CB8C37" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="482,632 499,632 499,20 482,20 482,632" class="background" fill="#678F66" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="499,632 506,632 506,20 499,20 499,632" class="background" fill="#99C2B5" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="506,632 526,632 526,20 506,20 506,632" class="background" fill="#F04028" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="526,632 547,632 547,20 526,20 526,632" class="background" fill="#812B92" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="547,632 569,632 569,20 547,20 547,632" class="background" fill="#34B2C9" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="569,632 601,632 601,20 569,20 569,632" class="background" fill="#7FC64E" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="601,632 619,632 619,20 601,20 601,632" class="background" fill="#FD9A52" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+<polyline points="619,632 628,632 628,20 619,20 619,632" class="background" fill="#FFE619" fill-opacity="0.2" stroke="#000000" stroke-width="0" stroke-linecap="square"></polyline>
+</g>
+<g id="prunetree-branches" class="branches" depth="unknown">
+<text x="646" y="64" font-style="italic"><a href="{{ url_for('zeb') }}"> Danio rerio </a></text>
+<polyline points="451,84 451,59 628,59" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="59" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="59" r="12" class="node" rank="species" otu="true" name="Danio rerio" time="" lncount="1" id="40760" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="88" font-style="italic"><a href="{{ url_for('chi') }}"> Gallus gallus </a></text>
+<polyline points="501,112 501,83 628,83" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="83" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="83" r="12" class="node" rank="species" otu="true" name="Gallus gallus" time="" lncount="1" id="59275" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="112" font-style="italic"><a href="{{ url_for('opo') }}"> Monodelphis domestica </a></text>
+<polyline points="564,144 564,107 628,107" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="107" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="107" r="12" class="node" rank="species" otu="true" name="Monodelphis domestica" time="" lncount="1" id="73862" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="136" font-style="italic"><a href="{{ url_for('bos') }}"> Bos taurus </a></text>
+<polyline points="603,141 603,131 628,131" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="131" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="131" r="12" class="node" rank="species" otu="true" name="Bos taurus" time="" lncount="1" id="75615" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="160" font-style="italic"><a href="{{ url_for('sus') }}"> Sus scrofa </a></text>
+<polyline points="603,145 603,155 628,155" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="155" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="155" r="12" class="node" rank="species" otu="true" name="Sus scrofa" time="" lncount="1" id="75993" fill="rgba(0,0,0,0)"></circle>
+<polyline points="589,184 589,143 603,143" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="603" cy="143" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="603" cy="143" r="12" class="node" rank="unknown" cilo="58" cihi="66" isci="true" time="62" lncount="2" dof="Boreoeutheria" id="75381" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="184" font-style="italic"><a href="{{ url_for('rab') }}"> Oryctolagus cuniculus </a></text>
+<polyline points="595,195 595,179 628,179" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="179" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="179" r="12" class="node" rank="species" otu="true" name="Oryctolagus cuniculus" time="" lncount="1" id="77776" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="208" font-style="italic"><a href="{{ url_for('rat') }}"> Rattus norvegicus </a></text>
+<polyline points="620,213 620,203 628,203" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="203" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="203" r="12" class="node" rank="species" otu="true" name="Rattus norvegicus" time="" lncount="1" id="78392" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="232" font-style="italic"><a href="{{ url_for('mou') }}"> Mus musculus </a></text>
+<polyline points="620,217 620,227 628,227" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="227" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="227" r="12" class="node" rank="species" otu="true" name="Mus musculus" time="" lncount="1" id="78921" fill="rgba(0,0,0,0)"></circle>
+<polyline points="595,199 595,215 620,215" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="620" cy="215" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="620" cy="215" r="12" class="node" rank="unknown" cilo="18.3" cihi="23.4" isci="true" time="20.9" lncount="2" dof="Glires" id="78308" fill="rgba(0,0,0,0)"></circle>
+<polyline points="591,228 591,197 595,197" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="595" cy="197" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="595" cy="197" r="12" class="node" rank="no rank" cilo="76" cihi="88" isci="true" time="82" lncount="3" name="Glires" id="77732" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="256" font-style="italic"><a href="{{ url_for('mac') }}"> Macaca mulatta </a></text>
+<polyline points="616,261 616,251 628,251" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="251" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="251" r="12" class="node" rank="species" otu="true" name="Macaca mulatta" time="" lncount="1" id="81580" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="280" font-style="italic"><a href="{{ url_for('hum') }}"> Homo sapiens </a></text>
+<polyline points="616,265 616,275 628,275" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="275" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="275" r="12" class="node" rank="species" otu="true" name="Homo sapiens" time="" lncount="1" id="81819" fill="rgba(0,0,0,0)"></circle>
+<polyline points="591,232 591,263 616,263" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="616" cy="263" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="616" cy="263" r="12" class="node" rank="parvorder" cilo="27.6" cihi="31.3" isci="true" time="29.4" lncount="2" name="Catarrhini" id="81534" fill="rgba(0,0,0,0)"></circle>
+<polyline points="589,188 589,230 591,230" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="591" cy="230" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="591" cy="230" r="12" class="node" rank="superorder" cilo="85" cihi="94" isci="true" time="90" lncount="5" name="Euarchontoglires" id="77731" fill="rgba(0,0,0,0)"></circle>
+<polyline points="564,148 564,186 589,186" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="589" cy="186" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="589" cy="186" r="12" class="node" rank="no rank" cilo="91" cihi="102" isci="true" time="96" lncount="7" name="Boreoeutheria" id="74263" fill="rgba(0,0,0,0)"></circle>
+<polyline points="501,116 501,146 564,146" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="564" cy="146" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="564" cy="146" r="12" class="node" rank="no rank" cilo="150" cihi="167" isci="true" time="159" lncount="8" name="Theria" id="73706" fill="rgba(0,0,0,0)"></circle>
+<polyline points="451,88 451,114 501,114" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="501" cy="114" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="501" cy="114" r="12" class="node" rank="no rank" cilo="297" cihi="326" isci="true" time="312" lncount="9" name="Amniota" id="49475" fill="rgba(0,0,0,0)"></circle>
+<polyline points="304,196 304,86 451,86" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="451" cy="86" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="451" cy="86" r="12" class="node" rank="no rank" cilo="425" cihi="446" isci="true" time="435" lncount="10" name="Euteleostomi" id="28759" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="304" font-style="italic"><a href="{{ url_for('fly') }}"> Drosophila melanogaster </a></text>
+<polyline points="326,309 326,299 628,299" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="299" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="299" r="12" class="node" rank="species" otu="true" name="Drosophila melanogaster" time="" lncount="1" id="105260" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="328" font-style="italic"><a href="{{ url_for('worm') }}"> Caenorhabditis elegans </a></text>
+<polyline points="326,313 326,323 628,323" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="323" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="323" r="12" class="node" rank="species" otu="true" name="Caenorhabditis elegans" time="" lncount="1" id="121777" fill="rgba(0,0,0,0)"></circle>
+<polyline points="304,200 304,311 326,311" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="326" cy="311" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="326" cy="311" r="12" class="node" rank="unknown" cilo="551" cihi="946" isci="true" time="743" lncount="2" dof="" id="82581" fill="rgba(0,0,0,0)"></circle>
+<polyline points="20,324 20,198 304,198" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="304" cy="198" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="304" cy="198" r="12" class="node" rank="unknown" cilo="678" cihi="916" isci="true" time="797" lncount="12" dof="" id="28515" fill="rgba(0,0,0,0)"></circle>
+<circle cx="20" cy="324" r="4" fill="#000"></circle>
+<circle cx="20" cy="324" r="12" class="node" rank="unknown" time="1496" cilo="1082" cihi="1781" isci="false" lncount="23" name="" id="23344" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="352" font-style="italic"><a href="{{ url_for('ban') }}"> Musa acuminata </a></text>
+<polyline points="585,375 585,347 628,347" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="347" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="347" r="12" class="node" rank="species" otu="true" name="Musa acuminata" time="" lncount="1" id="139055" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="376" font-style="italic"><a href="{{ url_for('tri') }}"> Triticum aestivum </a></text>
+<polyline points="615,381 615,371 628,371" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="371" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="371" r="12" class="node" rank="species" otu="true" name="Triticum aestivum" time="" lncount="1" id="139928" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="400" font-style="italic"><a href="{{ url_for('brac') }}"> Brachypodium distachyon </a></text>
+<polyline points="615,385 615,395 628,395" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="395" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="395" r="12" class="node" rank="species" otu="true" name="Brachypodium distachyon" time="" lncount="1" id="140313" fill="rgba(0,0,0,0)"></circle>
+<polyline points="608,405 608,383 615,383" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="615" cy="383" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="615" cy="383" r="12" class="node" rank="unknown" cilo="26" cihi="39" isci="true" time="33" lncount="2" dof="Mesangiospermae" id="139773" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="424" font-style="italic"><a href="{{ url_for('sor') }}"> Sorghum bicolor </a></text>
+<polyline points="623,429 623,419 628,419" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="419" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="419" r="12" class="node" rank="species" otu="true" name="Sorghum bicolor" time="" lncount="1" id="140404" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="448" font-style="italic"><a href="{{ url_for('zea') }}"> Zea mays </a></text>
+<polyline points="623,433 623,443 628,443" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="443" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="443" r="12" class="node" rank="species" otu="true" name="Zea mays" time="" lncount="1" id="140420" fill="rgba(0,0,0,0)"></circle>
+<polyline points="608,409 608,431 623,431" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="623" cy="431" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="623" cy="431" r="12" class="node" rank="tribe" cilo="0.0" cihi="0.0" isci="false" time="12.2" lncount="2" name="Andropogoneae" id="140350" fill="rgba(0,0,0,0)"></circle>
+<polyline points="585,379 585,407 608,407" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="608" cy="407" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="608" cy="407" r="12" class="node" rank="unknown" cilo="40" cihi="53" isci="true" time="50" lncount="4" dof="Mesangiospermae" id="139216" fill="rgba(0,0,0,0)"></circle>
+<polyline points="563,453 563,377 585,377" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="585" cy="377" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="585" cy="377" r="12" class="node" rank="unknown" cilo="90" cihi="115" isci="true" time="105" lncount="5" dof="Mesangiospermae" id="138915" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="472" font-style="italic"><a href="{{ url_for('vit') }}"> Vitis vinifera </a></text>
+<polyline points="583,492 583,467 628,467" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="467" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="467" r="12" class="node" rank="species" otu="true" name="Vitis vinifera" time="" lncount="1" id="146601" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="496" font-style="italic"><a href="{{ url_for('ara') }}"> Arabidopsis thaliana </a></text>
+<polyline points="618,501 618,491 628,491" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="491" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="491" r="12" class="node" rank="species" otu="true" name="Arabidopsis thaliana" time="" lncount="1" id="148505" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="520" font-style="italic"><a href="{{ url_for('bras') }}"> Brassica rapa </a></text>
+<polyline points="618,505 618,515 628,515" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="515" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="515" r="12" class="node" rank="species" otu="true" name="Brassica rapa" time="" lncount="1" id="148898" fill="rgba(0,0,0,0)"></circle>
+<polyline points="585,519 585,503 618,503" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="618" cy="503" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="618" cy="503" r="12" class="node" rank="unknown" cilo="20.4" cihi="30.9" isci="true" time="25.6" lncount="2" dof="rosids" id="148487" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="544" font-style="italic"><a href="{{ url_for('gly') }}"> Glycine max </a></text>
+<polyline points="585,523 585,539 628,539" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="539" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="539" r="12" class="node" rank="species" otu="true" name="Glycine max" time="" lncount="1" id="156573" fill="rgba(0,0,0,0)"></circle>
+<polyline points="583,496 583,521 585,521" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="585" cy="521" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="585" cy="521" r="12" class="node" rank="unknown" cilo="97" cihi="109" isci="true" time="106" lncount="3" dof="rosids" id="146886" fill="rgba(0,0,0,0)"></circle>
+<polyline points="580,532 580,494 583,494" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="583" cy="494" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="583" cy="494" r="12" class="node" rank="subclass" cilo="105" cihi="115" isci="true" time="110" lncount="4" name="rosids" id="146386" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="568" font-style="italic"><a href="{{ url_for('beta') }}"> Beta vulgaris </a></text>
+<polyline points="583,573 583,563 628,563" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="563" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="563" r="12" class="node" rank="species" otu="true" name="Beta vulgaris" time="" lncount="1" id="166352" fill="rgba(0,0,0,0)"></circle>
+    <text x="646" y="592" font-style="italic"><a href="{{ url_for('sol') }}"> Solanum lycopersicum </a></text>
+<polyline points="583,577 583,587 628,587" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="628" cy="587" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="628" cy="587" r="12" class="node" rank="species" otu="true" name="Solanum lycopersicum" time="" lncount="1" id="185557" fill="rgba(0,0,0,0)"></circle>
+<polyline points="580,536 580,575 583,575" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="583" cy="575" r="4" stroke="#000" stroke-width="1" fill="none"></circle>
+<circle cx="583" cy="575" r="12" class="node" rank="unknown" cilo="107" cihi="116" isci="true" time="112" lncount="2" dof="Pentapetalae" id="164877" fill="rgba(0,0,0,0)"></circle>
+<polyline points="563,457 563,534 580,534" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="580" cy="534" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="580" cy="534" r="12" class="node" rank="no rank" cilo="110" cihi="124" isci="true" time="117" lncount="6" name="Pentapetalae" id="146384" fill="rgba(0,0,0,0)"></circle>
+<polyline points="20,328 20,455 563,455" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square"></polyline>
+<circle cx="563" cy="455" r="4" stroke="#000" stroke-width="1" fill="#000"></circle>
+<circle cx="563" cy="455" r="12" class="node" rank="no rank" cilo="148" cihi="173" isci="true" time="160" lncount="11" name="Mesangiospermae" id="133472" fill="rgba(0,0,0,0)"></circle>
+</g>
+</svg>
+    </div>
+      <p>Note: the species tree is drawn by TimeTree</p>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="container" align="center">
+  <div class="card" style="height:500px;width:1200px" align="center">
+    <div class="card-header" align="left"><h4>Data summary</h4></div>
+    <div class="card-body">
+        <div id="container" style="min-width:90%;height:600px"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+      Highcharts.chart('container', {
+	chart: {
+		plotBackgroundColor: null,
+		plotBorderWidth: null,
+		plotShadow: false,
+		type: 'column',
+        height:'400px'
+	},
+	title: {
+		text: 'DDGs of all species'
+	},
+    xAxis: {
+		categories: ['Chichen','Human','Macaque','Mouse','Opossum','Rabbit','Rat','Arabidopsis','Banana','Beta vulgaris',
+            'Bos taurus','Brachypodium distachyon','Brassica rapa','Fly','Glycine max','Medaka','Solanum lycopersicum',
+            'Sorghum bicolor','Sus scrofa','Triticum aestivum','Vitis viniferas','Worm','Zea mays','Zebrafish'],
+		crosshair: true
+	},
+    yAxis: {
+		title: {
+			text: 'Number'
+		}
+	},
+	series: [{
+		colorByPoint: false,
+		data: [{
+			name: 'Chicken',
+			y: 21852,
+			sliced: true,
+			selected: false
+		}, {
+			name: 'Human',
+			y: 43745
+		}, {
+			name: 'Macaque',
+			y: 17769
+		}, {
+			name: 'Mouse',
+			y: 11986
+		}, {
+			name: 'Opossum',
+			y: 25920
+		}, {
+			name: 'Rabbit',
+			y: 23689
+		}, {
+			name: 'Rat',
+			y: 12465
+		}, {
+			name: 'Arabidopsis',
+			y: 6135
+		}, {
+			name: 'Banana',
+			y: 26977
+		},{
+			name: 'Beta vulgaris',
+			y: 1230
+		},{
+			name: 'Bos taurus',
+			y: 1008
+		},{
+			name: 'Brachypodium distachyon',
+			y: 27619
+		},{
+			name: 'Brassica rapa',
+			y: 1575
+		},{
+			name: 'Fly',
+			y: 10390
+		},{
+			name: 'Glycine max',
+			y: 40381
+		},{
+			name: 'Medaka',
+			y: 40381
+		},{
+			name: 'Solanum lycopersicum',
+			y: 21901
+		},{
+			name: 'Sorghum bicolor',
+			y: 14265
+		},{
+			name: 'Sus scrofa',
+			y: 19499
+		},{
+			name: 'Triticum aestivum',
+			y: 1370
+		},{
+			name: 'Vitis viniferas',
+			y: 23738
+		},{
+			name: 'Worm',
+			y: 7662
+		},{
+			name: 'Zea mays',
+			y: 33430
+		},{
+			name: 'Zebrafish',
+			y: 20144
+		}]
+	}]
+});
+</script>
+<footer class="pt-5 my-5 text-muted border-top">
+    <div align="center">
+         <p>Copyright ©Chen Lab, College of Life Science and Technology , HZAU, China.</p>
+         <p>Any comments and suggestions, please contact us</p>
+         <p>鄂ICP备19017097号</p>
+    </div>
+</footer>
+</body>
+{% endblock %}
+</html>
+

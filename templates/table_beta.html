@@ -1,0 +1,73 @@
+{% extends "index.html" %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+    {% block content %}
+  <!-- datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+
+</head>
+
+<body>
+<br>
+<br>
+<div align="center"><h3>Informations for Developmentally dynamic genes</h3></div>
+<br>
+<table id="example" class="cell-border">
+    <thead>
+            <tr>
+                <th>Gene</th>
+                <th>Chromosome</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Biotype</th>
+                <th>Tissue</th>
+                <th>Species</th>
+                <th>Project</th>
+            </tr>
+    </thead>
+</table>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+
+        "searching": true ,
+        'iDisplayLength': 20,
+        "dom":  "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        "ajax": "/beta_json/",
+        "columns": [
+            { "data": "Gene",render: function(data, type, row) { return '<a href="/single_gene/' + row.Gene + '">' + data + '</a>'; } },
+            { "data": "Chromosome" },
+            { "data": "Start" },
+            { "data": "End",},
+            { "data": "Biotype",},
+            { "data": "Tissue",},
+            { "data": "Species" },
+            { "data": "Project" }
+        ]
+    } );
+} );
+</script>
+
+</body>
+<footer class="pt-5 my-5 text-muted border-top">
+    <div align="center">
+         <p>Copyright ©Chen Lab, College of Life Science and Technology , HZAU, China.</p>
+         <p>Any comments and suggestions, please contact us</p>
+         <p>鄂ICP备19017097号</p>
+    </div>
+</footer>
+{% endblock %}

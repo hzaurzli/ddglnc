@@ -1,0 +1,109 @@
+{% extends "index.html" %}
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>About</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+ <!-- 面板 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% block content %}
+<body>
+<!-- Header -->
+<br>
+<br>
+<!-- //Header -->
+
+<div class="container" align="center">
+  <div class="card" style="height:100%;width:1000px" align="center">
+    <div class="card-header" align="left"><h4>Introduction</h4></div>
+    <div class="card-body">
+        <h5 align="left" style="line-height: 40px;">DevoGene is a comprehensive database of developmentally dynamic genes (DDGs) in both animals and plants.
+            We designed a user-friendly webpage for the database. In DevoGene, users can:
+        </h5>
+        <br>
+        <div style="width: 80%" align="center">
+             <h5 align="left" style="line-height: 40px;">
+            <p>
+                1.Browse or search genes in different species and filter by certain development stage and tissue;
+            </p>
+             </h5>
+            <br>
+            <h5 align="left" style="line-height: 40px;">
+            <p style="width: 80%">
+                2.Browse or search high throughput high-quality datasets with samples at multiple developmental stages;
+            </p>
+        </h5>
+        <br>
+        <h5 align="left" style="line-height: 40px;">
+            <p>
+                3.Integrate and download the information of DDGs in different species for further studies.
+            Totally, 434,132 DDGs were identified by integrated all public developmental transcriptomic datasets with more than two developmental stages in 24 species by curating high-throughput datasets of 2,360 samples from 6,850 experiments of 67 projects. Besides, we integrated the information of transcript factor to explore the regulation pattern about DDGs especially for non-coding DDGs.</h5>
+            </p>
+        </h5>
+        </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container" align="center">
+  <div class="card" style="height:100%;width:1000px" align="center">
+    <div class="card-header" align="left"><h4>Data process</h4></div>
+    <div class="card-body">
+        <h5 align="left" style="line-height: 40px;">
+            We collected the metadata information of transcriptomic data produced by the next generation sequencing from Expression Atlas,
+            NCBI Short Read Archive and NCBI Gene Expression Ominbus. The projects without more than two developmental stages were filtered by manual.
+            All the data downloaded from SRA using prefetch in sratoolkit (version 2.8.2)
+        </h5>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container" align="center">
+  <div class="card" style="height:100%;width:1000px" align="center">
+    <div class="card-header" align="left"><h4>Introduction</h4></div>
+    <div class="card-body">
+        <h5 align="left" style="line-height: 40px;">
+            1.Quality control: All the sra format data transformed into
+            fastq format by fastq-dump in sratoolkit with an argument of  to --split-3 and then used fastp (version 0.20.1) do the filtering by default parameters.
+        </h5>
+        <br>
+        <h5 align="left" style="line-height: 40px;">
+            2.Mapping: STAR (version 020201) was used to do the alignment with the default parameters and samtools view in samtools (version 1.9) was used to filter the low mapping quality data by using -q 30 parameters.
+        </h5>
+        <br>
+        <h5 align="left" style="line-height: 40px;">
+            3.Count: All the data was counted by featureCount in subread (version 1.6.3) and normalized by TPM (Transcript per million).
+        </h5>
+        <br>
+        <h5 align="left" style="line-height: 40px;">
+            4.DDGs identification: TPM normalized read were used to calculate a goodness-of-fit (R2) metric for each organ in each project by R package maSigPro (version 1.60.0). Subsequently, developmentally dynamic genes reach R2 > 0.3 in at least one organ and one project.
+        </h5>
+        <br>
+        <h5 align="left" style="line-height: 40px;">
+            5.TF binding site: All the TF binding sites were download for GTRD database.
+        </h5>
+    </div>
+  </div>
+</div>
+</body><br>
+<footer class="pt-5 my-5 text-muted border-top">
+    <div align="center">
+         <p>Copyright ©Chen Lab, College of Life Science and Technology , HZAU, China.</p>
+         <p>Any comments and suggestions, please contact us</p>
+         <p>鄂ICP备19017097号</p>
+    </div>
+</footer>
+{% endblock %}

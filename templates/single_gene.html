@@ -1,0 +1,265 @@
+{% extends "index.html" %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Single_Gene</title>
+
+  <link href="http://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/static/assets/css/style-starter.css">
+
+    {% block content %}
+  <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{#  <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>#}
+{#  <script src="https://code.highcharts.com.cn/highcharts/modules/data.js"></script>#}
+{#  <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>#}
+{#  <script src="https://code.highcharts.com.cn/highcharts/modules/accessibility.js"></script>#}
+
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 面板 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<!-- Header -->
+<br>
+<br>
+<div class="container" align="center">
+  <div class="card" style="height:100%;width:800px">
+    <div class="card-body">
+      <h4 class="card-title">Basic Informations</h4><br>
+        {% for one in info %}
+         <p align="left"><strong><a style="font-size:21px">Ensembl ID :</a></strong><a> {{ one.Gene }}</a></p>
+         <p align="left"><strong><a style="font-size:21px">Gene symbol : </a></strong><a> {{ one.Gene_name }}</a></p>
+         <p align="left"><strong><a style="font-size:21px">Gene type : </a></strong><a> {{ one.Gene_type }}</a></p>
+         <p align="left"><strong><a style="font-size:21px">Position : </a></strong><a> Chr {{ one.Chr }} : {{ one.Start }} - {{ one.End }}</a></p>
+         <p align="left"><strong><a style="font-size:21px">Description : </a></strong><a style="word-break: break-all"> {{ one.Description }}</a></p>
+         <p align="left"><strong><a style="font-size:21px">GO function : </a></strong></p>
+               {% for tow in Goinfo %}
+                   <ol start="1" class="w3l-right mt-4">
+                     <li style="text-align: left"> {{ tow.Go_function }} </li><br>
+                   </ol>
+               {% endfor %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+<br>
+<br>
+{#<div class="container" align="center">#}
+{#  <div class="card" style="height:350px;width:800px">#}
+{#      <div class="card-header" align="left"><h4>Gene expression in different stage</h4></div>#}
+{#    <div class="card-body">#}
+{#        <table id="datatable">#}
+{#		<thead>#}
+{#			<tr>#}
+{#				<th>Stage</th>#}
+{#				<th>Expressions</th>#}
+{#			</tr>#}
+{#		</thead>#}
+{#		<tbody>#}
+{#        {% for one in exp %}#}
+{#			<tr>#}
+{#				<td>{{ one.Stage }}</td>#}
+{#				<td>{{ one.Expression }}</td>#}
+{#			</tr>#}
+{#		{% endfor %}#}
+{#		</tbody>#}
+{#	</table>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{#<br>#}
+{#<br>#}
+{#<div class="container" align="center">#}
+{#  <div class="card" style="height:100%;width:800px">#}
+{#      <div class="card-header" align="left"><h4>Gene expression's graph in different stage</h4></div>#}
+{#    <div class="card-body">#}
+{#       <div id="container" style="min-width: ; height: 500px; margin: 10%"></div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+
+<br>
+<br>
+<style type="text/css">
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 10px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,th {
+    padding: 0;
+}
+
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+
+.pure-table caption {
+    color: #000;
+    font: italic 85%/1 arial,sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.pure-table td {
+    background-color: transparent;
+}
+
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+</style>
+<div class="container" align="center" id="TF">
+  <div class="card" style="height:100%;width:800px">
+      <div class="card-header" align="left"><h4>Transcript factors</h4></div>
+    <div class="card-body" style="overflow-y: auto; height: 400px; width:100%;">
+        <table class="pure-table" style="width: 80%">
+		<thead>
+			<tr>
+				<th>Gene</th>
+				<th>Transcript factors</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for thr in TF %}
+			<tr align="center">
+				<td id="val">{{ thr.Gene }}</td>
+				<td>{{ thr.TF }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+     var value = $('#val').text();
+     console.log(typeof value)
+     if(value.length == 0){
+         $('#TF').hide();
+     }
+</script>
+
+{#<script type="text/javascript">#}
+{#    Highcharts.chart('container', {#}
+{#	data: {#}
+{#		table: 'datatable'#}
+{#	},#}
+{#	chart: {#}
+{#		type: 'column'#}
+{#	},#}
+{#	title: {#}
+{#		text: 'The gene expression',#}
+{#        style:{#}
+{#		    fontSize: '30px'#}
+{#      }#}
+{#	},#}
+{#	yAxis: {#}
+{#		allowDecimals: false,#}
+{#		title: {#}
+{#			text: 'TPM',#}
+{#            style:{#}
+{#		    fontSize: '20px'#}
+{#      }#}
+{#	 }#}
+{#	},#}
+{#	tooltip: {#}
+{#		formatter: function () {#}
+{#			return '<b>' + this.series.name + '</b><br/>' +#}
+{#				this.point.y + ' ' + this.point.name.toLowerCase();#}
+{#		}#}
+{#	}#}
+{#});#}
+{#</script>#}
+
+<style>
+    #container {
+	height: 400px;
+}
+.highcharts-figure, .highcharts-data-table table {
+	min-width: 310px;
+	max-width: 800px;
+	margin: 1em auto;
+}
+#datatable {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+#datatable caption {
+	padding: 1em 0;
+	font-size: 1.2em;
+	color: #555;
+}
+#datatable th {
+	font-weight: 600;
+	padding: 0.5em;
+}
+#datatable td, #datatable th, #datatable caption {
+	padding: 0.5em;
+}
+#datatable thead tr, #datatable tr:nth-child(even) {
+	background: #f8f8f8;
+}
+#datatable tr:hover {
+	background: #f1f7ff;
+}
+</style>
+{% endblock %}
+<footer class="pt-5 my-5 text-muted border-top">
+    <div align="center">
+         <p>Copyright ©Chen Lab, College of Life Science and Technology , HZAU, China.</p>
+         <p>Any comments and suggestions, please contact us</p>
+         <p>鄂ICP备19017097号</p>
+    </div>
+</footer>
+</body>
+
+</html>
+
